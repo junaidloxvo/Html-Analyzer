@@ -24,18 +24,25 @@ app.directive('htmlanalyzer', function() {
 			};
 
 			$scope.loadIframe = function(){
-				
+
 				document.getElementById('iframe').src="http://"+$scope.element.url;
-				  
+				document.getElementById('iframe').onload = function() {
+					var body = document.getElementById('iframe').contentWindow.document.body;
+					body.addEventListener("click",function(e){
+						
+						document.getElementById("editor").value = e.target.outerHTML;
+						//alert(e.target);
+					});
+					};
+
 			};
 
 		}],
 		link: function(scope, element, attrs){
 
-			document.getElementById("url").addEventListener("click", function(){
 
-
-			});
+			
+			
 
 
 		},
