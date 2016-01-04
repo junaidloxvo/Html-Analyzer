@@ -32,6 +32,8 @@ app.directive('htmlanalyzer', function() {
 						
 						document.getElementById("editor").value = e.target.outerHTML;
 						//alert(e.target);
+						document.getElementsByTagName("*").className = "";
+						e.target.setAttribute("class", "active");
 					});
 					};
 
